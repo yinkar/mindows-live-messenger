@@ -1,8 +1,22 @@
 <script setup>
 import { ref } from 'vue';
 import Login from './components/Login.vue';
+import { useStore } from 'vuex';
 
 const panel = ref(null);
+
+const store = useStore();
+
+document.addEventListener('mousemove', mouse => {
+    store.commit('setMousePosition', {
+        mouseX: mouse.x,
+        mouseY: mouse.y,
+    });
+});
+
+document.addEventListener('mouseup', () => {
+    store.commit('setMouseDown', false);
+});
 
 </script>
 
@@ -26,7 +40,7 @@ const panel = ref(null);
     width: 100vw;
     height: 100vh;
     background-image: url('./assets/bliss.jpg');
-    background-size: cover
+    background-size: cover;
 }
 
 *:not(input), *:not(textarea) {

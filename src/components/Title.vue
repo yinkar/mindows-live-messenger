@@ -1,4 +1,11 @@
 <script setup>
+import { useStore } from 'vuex';
+
+const store = useStore();
+
+function mouseDown() {
+    store.commit('setMouseDown', false);    
+}
 </script>
 
 <template>
@@ -33,7 +40,7 @@
 
         <div class="title-right">
             <div class="title-button title-options">
-                <button>
+                <button @mouseover="mouseDown">
                     <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clip-path="url(#clip0_543_38)">
                             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -51,7 +58,7 @@
             </div>
 
             <div class="title-button title-minimize">
-                <button>
+                <button @mouseover="mouseDown">
                     <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect x="1.77783" y="12.7507" width="12.8754" height="3.21886" fill="#9DB1C3" />
                     </svg>
@@ -59,7 +66,7 @@
             </div>
 
             <div class="title-button title-fullscreen">
-                <button>
+                <button @mouseover="mouseDown">
                     <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clip-path="url(#clip0_543_36)">
                             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -76,7 +83,7 @@
             </div>
 
             <div class="title-button title-close">
-                <button>
+                <button @mouseover="mouseDown">
                     <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clip-path="url(#clip0_543_34)">
                             <path d="M2.06055 1.09424L14.936 13.9697" stroke="#9DB1C3" stroke-width="3.21886" />
@@ -123,6 +130,11 @@
     font-size: 16.0943px;
     line-height: 18px;
     color: #FFFFFF;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-stroke: 0.45px;
+    -webkit-text-stroke: 0.45px rgba(0, 0, 0, 0.1);
+    text-shadow: #ddd7 0px .5px 1px;
 }
 
 .title-button > button {
