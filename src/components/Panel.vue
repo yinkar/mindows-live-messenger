@@ -50,7 +50,7 @@ onMounted(() => {
 
 <template>
     <div class="panel" ref="panel" :style="{ left: panelX + 'px', top: panelY + 'px' }">
-        <Title @mousedown="mouseDown" @touchstart="mouseDown" />
+        <Title @mousedown="mouseDown" />
         <div class="content">
             <slot/>
         </div>

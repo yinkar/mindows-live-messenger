@@ -14,17 +14,8 @@ document.addEventListener('mousemove', mouse => {
     });
 });
 
-document.addEventListener('touchmove', touch => {
-    store.commit('setMousePosition', {
-        mouseX: touch.touches[0].clientX,
-        mouseY: touch.touches[0].clientY,
-    });
-});
-
-['mouseup', 'touchend', 'touchcancel'].forEach(eventName => {
-    document.addEventListener(eventName, () => {
-        store.commit('setMouseDown', false);
-    });
+document.addEventListener('mouseup', () => {
+    store.commit('setMouseDown', false);
 });
 
 </script>
@@ -50,6 +41,7 @@ document.addEventListener('touchmove', touch => {
     height: 100vh;
     background-image: url('./assets/bliss.jpg');
     background-size: cover;
+    overflow: hidden;
 }
 
 *:not(input), *:not(textarea) {
