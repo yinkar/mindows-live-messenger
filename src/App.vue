@@ -14,8 +14,17 @@ document.addEventListener('mousemove', mouse => {
     });
 });
 
-document.addEventListener('mouseup', () => {
-    store.commit('setMouseDown', false);
+document.addEventListener('touchmove', touch => {
+    store.commit('setMousePosition', {
+        mouseX: touch.touches[0].clientX,
+        mouseY: touch.touches[0].clientY,
+    });
+});
+
+['mouseup', 'touchend', 'touchcancel'].forEach(eventName => {
+    document.addEventListener(eventName, () => {
+        store.commit('setMouseDown', false);
+    });
 });
 
 </script>

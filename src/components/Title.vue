@@ -3,8 +3,9 @@ import { useStore } from 'vuex';
 
 const store = useStore();
 
-function mouseDown() {
-    store.commit('setMouseDown', false);    
+function iconMouseDown(e) {
+    e.stopPropagation();
+    store.commit('setMouseDown', false);
 }
 </script>
 
@@ -40,7 +41,7 @@ function mouseDown() {
 
         <div class="title-right">
             <div class="title-button title-options">
-                <button @mouseover="mouseDown">
+                <button @mousedown="iconMouseDown">
                     <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clip-path="url(#clip0_543_38)">
                             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -58,7 +59,7 @@ function mouseDown() {
             </div>
 
             <div class="title-button title-minimize">
-                <button @mouseover="mouseDown">
+                <button @mousedown="iconMouseDown">
                     <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect x="1.77783" y="12.7507" width="12.8754" height="3.21886" fill="#9DB1C3" />
                     </svg>
@@ -66,7 +67,7 @@ function mouseDown() {
             </div>
 
             <div class="title-button title-fullscreen">
-                <button @mouseover="mouseDown">
+                <button @mousedown="iconMouseDown">
                     <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clip-path="url(#clip0_543_36)">
                             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -83,7 +84,7 @@ function mouseDown() {
             </div>
 
             <div class="title-button title-close">
-                <button @mouseover="mouseDown">
+                <button @mousedown="iconMouseDown">
                     <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clip-path="url(#clip0_543_34)">
                             <path d="M2.06055 1.09424L14.936 13.9697" stroke="#9DB1C3" stroke-width="3.21886" />

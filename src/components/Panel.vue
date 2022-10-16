@@ -40,8 +40,6 @@ onMounted(() => {
     panelX.value = document.body.getBoundingClientRect().width / 2 - panel.value.getBoundingClientRect().width / 2;
     panelY.value = document.body.getBoundingClientRect().height / 2 - panel.value.getBoundingClientRect().height / 2;
 
-    console.log()
-
     Object.assign(panel.value.style, {
         left: `${panelX.value}px`,
         top: `${panelX.value}px`,
@@ -52,7 +50,7 @@ onMounted(() => {
 
 <template>
     <div class="panel" ref="panel" :style="{ left: panelX + 'px', top: panelY + 'px' }">
-        <Title @mousedown="mouseDown" />
+        <Title @mousedown="mouseDown" @touchstart="mouseDown" />
         <div class="content">
             <slot/>
         </div>
