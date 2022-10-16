@@ -28,21 +28,21 @@ function cancelLogin(e) {
         <div class="email">
           <label for="email" class="email-label"><ins>E</ins>-mail address:</label>
           <div>
-            <input type="text" class="input email-input">
+            <input type="text" class="input email-input" :disabled="isLogin">
           </div>
         </div>
 
         <div class="password">
           <label for="password" class="password-label">Pass<ins>w</ins>ord:</label>
           <div>
-            <input type="password" class="input password-input">
+            <input type="password" class="input password-input" :disabled="isLogin">
           </div>
         </div>
 
         <div class="status">
           <label for="status" class="status-label">Stat<ins>u</ins>s:</label>
           <div>
-            <select name="status" class="input status-input">
+            <select name="status" class="input status-input" :disabled="isLogin">
               <option value="online">Online</option>
               <option value="online">Busy</option>
               <option value="online">Offline</option>
